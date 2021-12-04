@@ -1,0 +1,20 @@
+#병원정보서비스(2021)
+
+setwd("C:/사용자/siyul/데스크탑/데이터")
+클리닉 < 읽기.csv("병원=.csv",헤더=TRUE)
+#sum(is.na(클리닉))
+
+레벨 <- 클리닉 $종별부비드
+nlevel <- 클리닉 $종별부비드
+도시 <- 클리닉 $1.1
+x <- 클리닉 $x 
+y <- 클리닉 $y
+
+dat_c <-data.frame(도시, x,y, 레벨)
+is.na(dat_c)
+합계(is.na(dat_c))#결측값 총합계
+
+dat_c <-na.omit (dat_c) #na.omit:@ytn.co.kr 
+str(dat_c)
+dat_c
+합계(is.na(dat_c))#결측값 총합계
