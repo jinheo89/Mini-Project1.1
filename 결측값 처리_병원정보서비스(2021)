@@ -1,6 +1,6 @@
 #병원정보서비스(2021)
 
-setwd("C:/사용자/siyul/데스크탑/데이터")
+setwd("C:/Users/siyul/Desktop/data") 
 clinic <read.csv("병원정보서비스(2021).csv",header=TRUE)
 #sum(is.na(clinic))
 
@@ -12,7 +12,7 @@ y <- clinic $y
 
 dat_c <-data.frame(city, x,y, level)
 is.na(dat_c)
-sum(is.na(dat_c) )#결측값 총합계
+sum(is.na(dat_c) ) #결측값 총합계
 
 dat_c <-na.omit (dat_c) #na.omit: 결측값 제거 함수
 str(dat_c)
