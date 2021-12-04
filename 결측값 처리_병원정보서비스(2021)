@@ -1,20 +1,31 @@
+
 #병원정보서비스(2021)
 
-setwd("C:/Users/siyul/Desktop/data") 
-clinic <read.csv("병원정보서비스(2021).csv",header=TRUE)
+clinic <-read.csv("병원정보서비스(2021).csv",header=TRUE)
 #sum(is.na(clinic))
+head(clinic)
 
-level <- clinic $종별부비드
-nlevel <- clinic $종별부비드
-city <- clinic $1.1
-x <- clinic $x 
-y <- clinic $y
+level <- clinic$종별코드명
+nlevel <- clinic$종별코드
+city <- clinic$시도코드명
+x <- clinic$x좌표
+y <- clinic$y좌표
 
-dat_c <-data.frame(city, x,y, level)
+#각 변수별로 결측치 유무 확인
+table(is.na(x))
+length(x)
+table(is.na(y))
+length(y)
+is.na(level)
+is.na(nlevel)
+sum(is.na(city))
+length(city)
+
+dat_c <-data.frame(city, x,y,level)
 is.na(dat_c)
 sum(is.na(dat_c) ) #결측값 총합계
 
 dat_c <-na.omit (dat_c) #na.omit: 결측값 제거 함수
 str(dat_c)
-dat_c
-sum(is.na(dat_c)) #결측값 총합계
+#결측치를 제거한 파일 .csv 타입으로 저장
+write.csv(dat_c,"completeclinicloc.csv")
