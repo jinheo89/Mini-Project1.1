@@ -1,20 +1,20 @@
 #병원정보서비스(2021)
 
 setwd("C:/사용자/siyul/데스크탑/데이터")
-클리닉 < 읽기.csv("병원=.csv",헤더=TRUE)
-#sum(is.na(클리닉))
+clinic <read.csv("병원정보서비스(2021).csv",header=TRUE)
+#sum(is.na(clinic))
 
-레벨 <- 클리닉 $종별부비드
-nlevel <- 클리닉 $종별부비드
-도시 <- 클리닉 $1.1
-x <- 클리닉 $x 
-y <- 클리닉 $y
+level <- clinic $종별부비드
+nlevel <- clinic $종별부비드
+city <- clinic $1.1
+x <- clinic $x 
+y <- clinic $y
 
-dat_c <-data.frame(도시, x,y, 레벨)
+dat_c <-data.frame(city, x,y, level)
 is.na(dat_c)
-합계(is.na(dat_c))#결측값 총합계
+sum(is.na(dat_c) )#결측값 총합계
 
-dat_c <-na.omit (dat_c) #na.omit:@ytn.co.kr 
+dat_c <-na.omit (dat_c) #na.omit: 결측값 제거 함수
 str(dat_c)
 dat_c
-합계(is.na(dat_c))#결측값 총합계
+sum(is.na(dat_c)) #결측값 총합계
