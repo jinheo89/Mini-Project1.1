@@ -1,6 +1,6 @@
 
 #병원정보서비스(2021)
-
+setwd("C:/Users/siyul/Desktop/data")
 clinic <-read.csv("병원정보서비스(2021).csv",header=TRUE)
 #sum(is.na(clinic))
 head(clinic)
