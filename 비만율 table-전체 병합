@@ -1,0 +1,18 @@
+setwd('C:/workspace/mini_project/project_data/demographic/tumor_research/causation')
+outlier <- read.csv('비만율(2017-2019).csv',header=T)
+head(outlier)
+
+outlier <- data.frame(city,x,y,level)
+table(outlier$x)
+
+
+outlier_dat <- outlier[-c(3:11),] #학년별 데이터 제거 
+outlier_dat <- outlier_dat[-c(2,nrow(outlier_dat)),]
+outlier_dat <- outlier_dat[,-1]
+head(outlier_dat)
+
+
+
+ext_dat <- outlier_dat[,2:ncol(outlier_dat)]
+head(ext_dat)
+ext_dat2 <- ext_dat[,c(1,2,11,20,29)] #전체만 extracting 
