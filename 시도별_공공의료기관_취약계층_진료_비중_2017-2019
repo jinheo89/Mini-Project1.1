@@ -1,7 +1,7 @@
-setwd('C:/workspace/R_basic')
+setwd('C:/workspace/R_study')
 
 
-data<-read.csv('시도별_공공의료기관_취약계층_진료_비중_2017-2019.csv',header=TRUE)
+data<-read.csv('시도별_공공의료기관_취약계층_진료_비중(2016-2018).csv',header=TRUE)
 
 data
 for(i in 1:21){
@@ -11,4 +11,4 @@ data[11,-1][i]<-round(mean(as.numeric(data[-(1:2),1+i]),na.rm=TRUE), digits=1)
 
 data
 
-write.csv(data, "시도별_공공의료기관_취약계층_진료_비중(2017-2019).csv")
+write.csv(data, "(결측치처리)시도별_공공의료기관_취약계층_진료_비중(2016-2018).csv")
