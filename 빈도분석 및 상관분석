@@ -18,6 +18,8 @@ ggplot(age_cancer, aes(x=연령별, y=X2016))+geom_bar(stat='identity', position
 
 #지역별 음주율, 비만율, 흡연율 데이터와 지역별 암발생자수 데이터간 상관분석
 #지역별 산업단지수 데이터와 암발생자수 데이터간 상관분석
+#지역별 암환자수에 세종시 레코드가 없음
+#다른 테이블에서 세종시 레코드는 제외
 
 area_smokeratio<-read.csv("(테이블변환)시도별_흡연율(2016-2018).csv",header=TRUE)
 area_smokeratio[-8,]
