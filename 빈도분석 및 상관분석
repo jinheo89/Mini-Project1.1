@@ -1,0 +1,47 @@
+setwd("C:/workspace/R_study/tabletransform")
+#상관분석
+
+#혜리씨가 변환중
+#지역별 암환자수 데이터 빈도분석
+cancer_area<-read.csv("시도별_암발생자수(2009-2013).csv", header=TRUE)
+cancer_area<-cancer_area[c(6,10,12,15,18,21,24,27,30,33,36,39,42,45,48,51),c(1,4)]
+library(ggplot2)
+
+ggplot(cancer_area, aes(x=cancer_area$시군구.1., y=cancer_area$X2013))+geom_bar(stat='identity', position='dodge')
+
+
+#연령별 암발생자수 데이터 빈도분석
+
+age_cancer<-read.csv("(테이블변환)성_연령별_암발생자수(2016-2018).csv", header=TRUE)
+age_cancer<-age_cancer[c(3:18),c(3,4)]
+
+ggplot(age_cancer, aes(x=연령별, y=X2016))+geom_bar(stat='identity', position='dodge')
+
+#지역별 음주율, 비만율, 흡연율 데이터와 지역별 암발생자수 데이터간 상관분석
+#지역별 산업단지수 데이터와 암발생자수 데이터간 상관분석
+
+area_smokeratio<-read.csv("(테이블변환)시도별_흡연율(2016-2018).csv",header=TRUE)
+area_smokeratio[-8,]
+
+plot(x=as.numeric(cancer_area$X2013), y=area_smokeratio[-8,]$X2016.1)
+cor(as.numeric(cancer_area$X2013),area_smokeratio[-8,]$X2016.1)
+
+#비만율: 체질량지수 25kg/㎡ 이상인 사람의 수 / 조사대상 응답자 수 × 100
+area_fatratio<-read.csv("(테이블변환)시군구별_비만율(2016-2018).csv", header=TRUE)
+plot(x=as.numeric(cancer_area$X2013), y=area_fatratio[-8,]$X2016.1)
+cor(as.numeric(cancer_area$X2013), area_fatratio[-8,]$X2016.1)
+
+
+area_alcoholratio<-read.csv("(테이블변환)시도별_월간음주율(2016-2018).csv", header=TRUE)
+plot(x=as.numeric(cancer_area$X2013), y=area_alcoholratio[-8,]$X2016.1)
+cor(as.numeric(cancer_area$X2013), area_alcoholratio[-8,]$X2016.1)
+
+area_plant<-read.csv("(테이블변환)공장등록현황(2021).csv", header=TRUE)
+plot(x=as.numeric(cancer_area$X2013, y=area_plant[-8,]$X)
+cor(as.numeric(cancer_area$X2013), area_plant[-8,]$X)
+
+
+#지역별 공공 의료기관분포 빈도분석
+area_clinic<-read.csv("(테이블변환)시도별_공공의료기관_기능별_기관_수(2016-2018).csv", header=TRUE)
+area_clinic<-area_clinic[c(3:19),c(1,2)]
+ggplot(area_clinic,aes(x=시도별.1., y=X2016))+geom_bar(stat='identity', position='dodge')
